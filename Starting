@@ -1,0 +1,35 @@
+program start;
+#include( "stdlib.hhf" );
+
+static
+i : int8;
+j : int8;
+
+begin start;
+
+stdout.put( "Gimme a decimal value to use as a start: ");
+stdin.get(i);
+stdout.put( "Gimme a decimal value to use as a stop: ");
+stdin.get(j);
+stdout.put(" Here's your answer: ");
+stdout.put(i);
+
+ForLp:
+initializeForLp:
+mov(i,AH);
+mov(j,BL);
+mov(1,CL);
+ForLpTerminationTest: 
+cmp( AH, BL );
+jg ForLpDone;
+ForLpBody: 
+
+add(CL,AH);
+mov(AH,i);
+stdout.put("_",i );
+
+ForLpIncrement:
+inc(CL);
+jmp ForLpTerminationTest;
+ForLpDone:
+end start;
