@@ -1,0 +1,139 @@
+Program Movie;
+#include( "stdlib.hhf" );
+static
+i : int16;
+j : int16;
+k : int16;
+begin Movie;
+
+stdout.put("Feed me 4 hex digits : ");
+stdin.get(BX);
+mov(BX,AX);
+mov(BX,CX);
+mov(BX,DX);
+mov(BX,SI);
+mov(BX,DI);
+
+
+shl(13,BX);
+shr(13,BX);
+stdout.puti16(BX);
+stdout.put(" Chilren",nl);
+
+shl(10,AX);
+shr(13,AX);
+stdout.puti16(AX);
+stdout.put(" Adult",nl);
+
+
+shl(7,DX);
+shr(13,DX);
+stdout.puti16(DX);
+stdout.put(" Senior Citizen",nl);
+
+Discount:
+shl(6,SI);
+shr(15,SI);
+ForDiscounttest:
+Cmp(SI,0);
+JNE Equal1;
+stdout.put("No ");
+Equal1:
+stdout.put("Matinee Discount",nl);
+
+Premium:
+shl(5,DI);
+shr(15,DI);
+ForPremiumtest:
+Cmp(DI,0);
+JNE Equal2;
+stdout.put("No ");
+Equal2:
+stdout.put("Blockbuster Premium",nl);
+
+ChildrenLP:
+mov(0,CX);
+mov(0,BH);
+mov(BX,i);
+Childrencondtion:
+Cmp(i,CX);
+JE ForChildrenLpend;
+Add(5,BH);
+forLoopIncrement:
+dec(i);
+Jmp Childrencondtion;
+ForChildrenLpend:
+
+AdultLP:
+mov(AX,j);
+Adultcondtion:
+Cmp(j,CX);
+JE ForAdultLpend;
+Add(10,BH);
+
+dec(j);
+Jmp Adultcondtion;
+ForAdultLpend:
+
+
+SeniorLP:
+mov(DX,k);
+Seniorcondtion:
+Cmp(k,CX);
+JE ForSeniorLpend;
+Add(7,BH);
+
+dec(k);
+Jmp Seniorcondtion;
+ForSeniorLpend:
+
+DiscountLP:
+mov(Si,i);
+mov(0,BP);
+Discountcondtion:
+Cmp(i,CX);
+JE ForDiscountLpend;
+add(BX,j);
+Add(AX,j);
+add(DX,j);
+
+Discountcondtion2:
+cmp(j,BP);
+JE ForDiscountLpend;
+
+sub(2,BH);
+dec(j);
+jmp Discountcondtion2;
+
+Jmp Discountcondtion;
+ForDiscountLpend:
+
+PremiumLP:
+mov(Di,i);
+mov(0,j);
+Premiumcondtion:
+Cmp(i,CX);
+Je ForPremiumLpend;
+add(BX,j);
+Add(AX,j);
+add(DX,j);
+
+Premiumcondtion2:
+cmp(j,BP);
+JE ForPremiumLpend;
+
+add(1,BH);
+dec(j);
+
+jmp Premiumcondtion2;
+
+Jmp Premiumcondtion;
+ForPremiumLpend:
+
+
+stdout.put("Total: $");
+stdout.puti8(BH);
+
+
+
+end Movie;
