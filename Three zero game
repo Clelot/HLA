@@ -1,0 +1,166 @@
+program game;
+#include( "stdlib.hhf" );
+
+static
+a: int8;
+
+begin game;
+
+//prompt 1
+
+LP1:
+stdout.put("Gimme a number: ");
+stdin.get(a);
+
+mov(a,BL);
+SHL(7,BL);
+SHR(7,BL);
+
+Test0:
+Mov(0,CL);
+CMP(BL,CL);
+
+
+JE TestEnding01;
+JNE Test31;
+
+TestEnding01:
+stdout.put("It ends in zero!",nl);
+stdout.put("Keep going...",nl);
+JMP LP2;
+
+Test31:
+Mov(3,DL);
+Mov(a,CL);
+Mov(10,AH);
+
+subtest1:
+CMP(CL,AH);
+
+JG runSub101;
+JNG test311;
+
+runSub101:
+sub(10,CL);
+Jmp subtest1;
+
+test311:
+CMP(CL,DL);
+
+JE TestEnding31;
+JNE GameEnding;
+
+
+TestEnding31:
+stdout.put("It ends in three!",nl);
+stdout.put("Keep going...",nl);
+
+JMP LP2;
+
+//prompt 2
+
+LP2:
+stdout.put("Gimme a number: ");
+stdin.get(a);
+
+mov(a,BL);
+SHL(7,BL);
+SHR(7,BL);
+
+Test02:
+Mov(0,CL);
+CMP(BL,CL);
+
+JE TestEnding02;
+JNE Test32;
+
+TestEnding02:
+stdout.put("It ends in zero!",nl);
+stdout.put("Keep going...",nl);
+JMP LP3;
+
+Test32:
+Mov(3,DL);
+Mov(a,CL);
+Mov(10,AH);
+
+subtest2:
+CMP(CL,AH);
+
+JG runsub102;
+JNG test312;
+
+runsub102:
+sub(10,CL);
+jmp subtest2;
+
+test312:
+CMP(CL,DL);
+JE TestEnding32;
+JNE GameEnding;
+
+
+TestEnding32:
+stdout.put("It ends in three!",nl);
+stdout.put("Keep going...",nl);
+JMP LP3;
+
+
+//PROMPT 3
+
+LP3:
+stdout.put("Gimme a number: ");
+stdin.get(a);
+
+mov(a,BL);
+SHL(7,BL);
+SHR(7,BL);
+
+Test03:
+Mov(0,CL);
+CMP(BL,CL);
+
+
+JE TestEnding03;
+JNE Test33;
+
+TestEnding03:
+stdout.put("It ends in zero!",nl);
+JMP Wingame;
+
+Test33:
+Mov(3,DL);
+Mov(a,CL);
+Mov(10,AH);
+
+subtest3:
+CMP(CL,AH);
+
+JG runsub103;
+JNG test313;
+
+runsub103:
+sub(10,CL);
+Jmp subtest3;
+
+test313:
+CMP(CL,DL);
+
+JE TestEnding33;
+JNE GameEnding;
+
+
+TestEnding33:
+stdout.put("It ends in three!",nl);
+JMP Wingame;
+
+GameEnding:
+stdout.put("Sorry Charlie!  You lose The Game!");
+JMP gameend;
+
+Wingame:
+stdout.put("You Win The Game!");
+
+gameend:
+
+end game;
