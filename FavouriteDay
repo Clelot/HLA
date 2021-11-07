@@ -1,0 +1,9 @@
+Program FavouriteDay;
+#include( "stdlib.hhf" );
+begin FavouriteDay;
+stdout.put("SSSSS  O   O  N   N  DDDD     A    Y   Y", nl);
+stdout.put("S      O   O  NN  N  D   D   A A    Y Y  ", nl);
+stdout.put("SSSSS  O   O  N N N  D   D  AAAAA    Y   ", nl);
+stdout.put("    S  O   O  N  NN  D   D  A   A    Y    ", nl);
+stdout.put("SSSSS   OOO   N   N  DDDD   A   A    Y    ", nl);
+end FavouriteDay;
