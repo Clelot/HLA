@@ -1,0 +1,71 @@
+program Tablex;
+#include( "stdlib.hhf" );
+static
+Valuex: int32 := 0; 
+begin Tablex;
+
+stdout.put( "Gimme a starting value: ");
+stdin.get(Valuex);
+
+//row1
+add(1,Valuex);
+stdout.put(Valuex," ");
+add(1,Valuex);
+stdout.put(Valuex," ");
+sub(2,Valuex);
+stdout.put(Valuex," ");
+add(3,Valuex);
+stdout.put(Valuex," ");
+add(1,Valuex);
+stdout.put(Valuex," ",nl);
+
+//row2
+add(1,Valuex);
+stdout.put(Valuex," ");
+add(1,Valuex);
+stdout.put(Valuex," ");
+sub(6,Valuex);
+stdout.put(Valuex," ");
+add(7,Valuex);
+stdout.put(Valuex," ");
+add(1,Valuex);
+stdout.put(Valuex," ",nl);
+
+
+//3
+sub(8,Valuex);
+stdout.put(Valuex," ")
+stdout.put(Valuex," ");
+stdout.put(Valuex," ");
+stdout.put(Valuex," ");
+stdout.put(Valuex," ",nl);
+
+//4
+add(9,Valuex);
+stdout.put(Valuex," ");
+add(1,Valuex);
+stdout.put(Valuex," ");
+sub(10,Valuex);
+stdout.put(Valuex," ");
+add(11,Valuex);
+stdout.put(Valuex," ");
+add(1,Valuex);
+stdout.put(Valuex," ",nl);
+
+
+
+//5
+add(1,Valuex);
+stdout.put(Valuex," ");
+add(1,Valuex);
+stdout.put(Valuex," ");
+sub(14,Valuex);
+stdout.put(Valuex," ");
+add(15,Valuex);
+stdout.put(Valuex," ");
+add(1,Valuex);
+stdout.put(Valuex," ",nl);
+
+
+
+end Tablex;
