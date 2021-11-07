@@ -1,0 +1,60 @@
+program Rolly_Shifty;
+
+#include( "stdlib.hhf" );
+static
+value : int8 := 0;
+multiplier : int8 := 0;
+
+begin Rolly_Shifty;
+
+stdout.put( "Gimme a starting value: " );
+stdin.get( value );
+stdout.put( "Rolly-Shift Table" , nl );
+
+// print row 1
+stdout.put( value, ": ");
+mov( value , ah );
+mov( ah , multiplier );
+rol( 1, value );
+stdout.put( value, " " );
+SHR( 1, value );
+SHR( 1, value );
+stdout.put( value, nl );
+mov(ah,value);
+
+//
+add( 1, value );
+stdout.put( value, ": ");
+rol( 1, value );
+stdout.put( value, " " );
+SHR( 1, value );
+SHR( 1, value );
+stdout.put( value, nl );
+rol( 1, value );
+mov(ah,value);
+
+//
+add( 2, value );
+stdout.put( value, ": ");
+rol( 1, value );
+stdout.put( value, " " );
+SHR( 1, value );
+SHR( 1, value );
+stdout.put( value, nl );
+rol( 1, value );
+mov(ah,value);
+
+//
+add( 3, value );
+stdout.put( value, ": ");
+rol( 1, value );
+stdout.put( value, " " );
+SHR( 1, value );
+SHR( 1, value );
+stdout.put( value, nl );
+rol( 1, value );
+add( 1, value );
+
+
+
+end Rolly_Shifty;
